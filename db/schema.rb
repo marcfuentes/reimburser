@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025193524) do
+ActiveRecord::Schema.define(:version => 20131025194233) do
+
+  create_table "employees", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "reimbursements", :force => true do |t|
+    t.string   "reference"
+    t.integer  "payee_id"
+    t.text     "comments"
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reimbursements", ["payee_id"], :name => "index_reimbursements_on_payee_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

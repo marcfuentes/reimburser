@@ -1,0 +1,19 @@
+
+<%= simple_form_for @reimbursement, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :reference %>
+  <div class="control-group">
+  	
+  	<div class="controls">
+  		<%= f.association :payee, prompt: "Select employee..." %>
+  
+    </div>
+   </div>
+  <%= f.input :comments %>
+  <%= f.input :data %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                reimbursements_path, :class => 'btn' %>
+  </div>
+<% end %>
+
